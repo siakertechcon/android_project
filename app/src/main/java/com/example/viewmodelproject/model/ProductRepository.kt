@@ -1,5 +1,7 @@
 package com.example.viewmodelproject.model
 
+import kotlinx.coroutines.flow.Flow
+
 object ProductRepository{
     fun getProducts(): List<Product> = listOf(
         Product (
