@@ -31,6 +31,8 @@ import com.example.composableproject.screens.OtherScreen3
 import com.example.composableproject.ui.theme.ComposableProjectTheme
 
 class MainActivity : ComponentActivity() {
+    private lateinit var navController: NavHostController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -41,31 +43,27 @@ class MainActivity : ComponentActivity() {
     @SuppressLint("NotConstructor", "UnusedMaterial3ScaffoldPaddingParameter")
     @Composable
     fun MainActivity() {
-        val navController = rememberNavController()
+        navController = rememberNavController()
         NavHost(
             navController = navController,
             startDestination = "Home"
         ) {
             composable(route = "Home") {
-                HomeScreen { destination ->
-                    navController.navigate(destination)
-                }
+                HomeScreen(navigate)
             }
             composable(route = "Screen1") {
-                OtherScreen1 { destination ->
-                    navController.navigate(destination)
-                }
+                OtherScreen1(navigate)
             }
             composable(route = "Screen2") {
-                OtherScreen2 { destination ->
-                    navController.navigate(destination)
-                }
+                OtherScreen2(navigate)
             }
             composable(route = "Screen3") {
-                OtherScreen3 { destination ->
-                    navController.navigate(destination)
-                }
+                OtherScreen3(navigate)
             }
         }
+    }
+
+    private val navigate: (String) -> Unit = { destination ->
+        navController.navigate(destination)
     }
 }
