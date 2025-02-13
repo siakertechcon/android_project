@@ -4,6 +4,7 @@ import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -17,7 +18,7 @@ import com.example.viewmodelproject.model.Product
 fun ProductCard(product: Product) {
     val interactionSource = remember { MutableInteractionSource() }
     val context = LocalContext.current
-    Box(
+    Column(
         Modifier.clickable(
             interactionSource = interactionSource,
             indication = null,
@@ -28,7 +29,7 @@ fun ProductCard(product: Product) {
                     Toast.LENGTH_SHORT
                 ).show()
             }
-        )) {
+    )) {
         Text(text="Name: ${product.name}")
         Text(text="Description: ${product.description}")
         AsyncImage(
