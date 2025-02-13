@@ -10,7 +10,6 @@ import com.example.composableproject.screens.OtherScreen1
 import com.example.composableproject.screens.OtherScreen2
 import com.example.composableproject.screens.OtherScreen3
 
-@SuppressLint("NotConstructor", "UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun Application() {
     val navController = rememberNavController()
