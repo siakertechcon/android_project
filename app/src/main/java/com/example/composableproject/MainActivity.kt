@@ -31,39 +31,10 @@ import com.example.composableproject.screens.OtherScreen3
 import com.example.composableproject.ui.theme.ComposableProjectTheme
 
 class MainActivity : ComponentActivity() {
-    private lateinit var navController: NavHostController
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MainActivity()
+            Application()
         }
-    }
-
-    @SuppressLint("NotConstructor", "UnusedMaterial3ScaffoldPaddingParameter")
-    @Composable
-    fun MainActivity() {
-        navController = rememberNavController()
-        NavHost(
-            navController = navController,
-            startDestination = "Home"
-        ) {
-            composable(route = "Home") {
-                HomeScreen(navigate)
-            }
-            composable(route = "Screen1") {
-                OtherScreen1(navigate)
-            }
-            composable(route = "Screen2") {
-                OtherScreen2(navigate)
-            }
-            composable(route = "Screen3") {
-                OtherScreen3(navigate)
-            }
-        }
-    }
-
-    private val navigate: (String) -> Unit = { destination ->
-        navController.navigate(destination)
     }
 }
