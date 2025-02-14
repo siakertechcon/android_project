@@ -9,8 +9,8 @@ import kotlinx.coroutines.flow.asStateFlow
 
 
 class ProductViewModel: ViewModel() {
-    private val _products = MutableStateFlow<List<Product>>(
-        ProductRepository.getProducts().toMutableList()
+    private val _products = MutableStateFlow(
+        ProductRepository.getProducts()
     )
     val products = _products.asStateFlow()
 
@@ -23,8 +23,5 @@ class ProductViewModel: ViewModel() {
             imageUrl = "https://image.shutterstock.com/image-photo/homemade-banana-muffins-cinnamon-chocolate-600w-1902548164.jpg",
             rating = 4.0F
         )
-        for(product in products.value) {
-            Log.d("PVM", product.toString())
-        }
     }
 }
