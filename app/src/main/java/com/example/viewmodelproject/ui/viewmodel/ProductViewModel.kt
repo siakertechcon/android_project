@@ -19,7 +19,6 @@ import kotlinx.coroutines.launch
 
 
 class ProductViewModel private constructor(): ViewModel() {
-
     companion object {
         private var instance: ProductViewModel? = null
         fun getInstance(): ProductViewModel {
