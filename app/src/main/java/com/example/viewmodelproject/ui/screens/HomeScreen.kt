@@ -18,13 +18,14 @@ import com.example.viewmodelproject.ui.viewmodel.ProductViewModel
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun HomeScreen() {
-    val productState = ProductViewModel.productData.collectAsState()
+    val productViewModel = ProductViewModel()
+    val productState = productViewModel.productData.collectAsState()
     val products = productState.value
     Scaffold {
         Column {
             Button(
                 onClick = {
-                    ProductViewModel.addProduct()
+                    productViewModel.addProduct()
                 }
             ) {
                 Text("Press Me")
