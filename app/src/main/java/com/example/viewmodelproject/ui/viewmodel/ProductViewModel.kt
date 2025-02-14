@@ -40,29 +40,4 @@ class ProductViewModel: ViewModel() {
             Log.d("PVM", product.toString())
         }
     }
-
-
-
-//    val products = ProductRepository.getProducts().toMutableList()
-//    fun addProduct() {
-//        products += Product (
-//            id = 10001,
-//            name = "Cool new product",
-//            price = 2.599F,
-//            description = "Freshly baked Banana muffin with chocolate chip cookies on top. This is for the people who love to add something extra in their muffins. This is a crowd favorite.",
-//            imageUrl = "https://image.shutterstock.com/image-photo/homemade-banana-muffins-cinnamon-chocolate-600w-1902548164.jpg",
-//            rating = 4.0F
-//        )
-//        for(product in products) {
-//            Log.d("PVM", product.toString())
-//        }
-//    }
-//
-//    init {
-//        Log.d("PVM", "ViewModel Created")
-//    }
-//
-//    override fun onCleared() {
-//        Log.d("PVM", "ViewModel Destroyed")
-//    }
 }
