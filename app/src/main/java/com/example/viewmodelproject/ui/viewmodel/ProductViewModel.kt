@@ -18,7 +18,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 
-object ProductViewModel: ViewModel() {
+class ProductViewModel: ViewModel() {
     private val _productData = MutableStateFlow(
         ProductRepository.getProducts()
     )
