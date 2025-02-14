@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.runtime.collectAsState
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -15,17 +16,17 @@ import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     private val productViewModel: ProductViewModel by viewModels()
-    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter", "StateFlowValueCalledInComposition")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d("PVM", "Activity Created, here is PVM: $productViewModel")
         setContent {
-            HomeScreen()
+            HomeScreen(productViewModel)
         }
-        Log.d("PVM", "MainActivity Created, here is PVM: $productViewModel")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.d("PVM", "MainActivity Destroyed")
+        Log.d("PVM", "Activity Destroyed")
     }
 }
