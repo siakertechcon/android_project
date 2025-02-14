@@ -16,7 +16,6 @@ import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     private val productViewModel: ProductViewModel by viewModels()
-    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter", "StateFlowValueCalledInComposition")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d("PVM", "Activity Created, here is PVM: $productViewModel")
