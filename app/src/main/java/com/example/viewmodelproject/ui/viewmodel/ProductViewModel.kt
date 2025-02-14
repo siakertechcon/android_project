@@ -18,7 +18,18 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 
-class ProductViewModel: ViewModel() {
+class ProductViewModel private constructor(): ViewModel() {
+
+    companion object {
+        private var instance: ProductViewModel? = null
+        fun getInstance(): ProductViewModel {
+            if(instance == null) {
+                instance = ProductViewModel()
+            }
+            return instance!!
+        }
+    }
+
     private val _productData = MutableStateFlow(
         ProductRepository.getProducts()
     )
@@ -29,4 +40,5 @@ class ProductViewModel: ViewModel() {
             productList + Product(0, "New Product", 23.32F, "asdadadad", "https://image.shutterstock.com/image-photo/homemade-banana-muffins-cinnamon-chocolate-600w-1902548164.jpg", 4.3F)
         }
     }
+
 }
